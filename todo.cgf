@@ -1,0 +1,48 @@
+
+Estructura de los niveles
+
+Region
+->Ruta/ciudad
+-->nivel (10+ niveles) cada nivel aumenta dificultad (nivel±2) / cada nivel tiene un random de pokemon con un porcentaje de aparicion
+    [al iniciar escena o durante la seleccion de nivel se hace la peticion al servidor para cuales]
+    [para facilidad los mapas van a ser de generacion estatica por el momento]//cuesta mas hacer el generador dinamico que diñarlos a mano
+
+
+
+Regions
+id      desc
+1       "Kanto"
+
+Maps
+id   RegionId    desc        scene
+1       1           "Ruta 1"    Kanto-R1
+
+Stages
+id MapId   stage    level
+1       1       1   5±2
+2       1       2   7±2
+3       1       3   8±2
+
+## sclass define el tipo de bullet y target
+## on shoot case 'sclass' then shot
+## on collision case 'sclass' then burn/freeze/sleep/slow/helth/paralisis
+Monsters
+id  name         sprite atk def spd sspd    type    sclass          passive               fly?  lava?  water?  whirl? swimg? recoveryTime
+1   "Charizard"  6      25  25  2   400     'Fuego' 'bullet-burn'   'power-up-fire'       1       0       0     0       0
+
+## Monstruos que aparezcan en cada stage el ratio debe sumar 100% para no desvirtuar
+Encounters
+id stageId MonsterId Ratio%
+1   1       1          10
+
+Team
+id userId teamIndex teamName
+1   1       1       "Aqua Team"
+
+members
+id TeamId memberIndex   petId
+1   1       1           1
+
+pets
+id userId MonsterId exp     level shiny
+1   1       1       345     26      1
