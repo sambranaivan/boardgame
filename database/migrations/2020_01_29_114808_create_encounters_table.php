@@ -13,7 +13,7 @@ class CreateEncountersTable extends Migration
      */
     public function up()
     {
-        Schema::create('monster_stage', function (Blueprint $table) {
+        Schema::create('encounter', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->unsignedBigInteger('monster_id');
@@ -30,6 +30,6 @@ class CreateEncountersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('monster_stage');
+        Schema::dropIfExists('encounter');
     }
 }

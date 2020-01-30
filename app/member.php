@@ -8,10 +8,11 @@ class member extends Model
 {
     //
     public function team(){
-        return $this->BelongsTo('App\team');
+     
+        return $this->hasOne('App\team');
     }
 
-    public function hasOne(){
+    public function pet(){
         return $this->hasOne('App\pet');
     }
 }

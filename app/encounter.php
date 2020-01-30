@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class monster_stage extends Model
+class encounter extends Model
 {
     //
-    protected $table = 'monster_stage';
+    protected $table = 'encounter';
 
     public function monster(){
         return $this->belongsTo('App\monster');

@@ -5,9 +5,11 @@ use App\map;
 use App\region;
 use App\stage;
 use App\monster;
-use App\monster_stage;
+use App\encounter;
 use App\User;
 use App\pet;
+use App\team;
+use App\member;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -55,11 +57,23 @@ class DatabaseSeeder extends Seeder
         $pet->monster_id = $monster->id;
         $pet->save();
 
-        $monster_stage = new monster_stage();
-        $monster_stage->stage_id = 1;
-        $monster_stage->monster_id  = 1;
-        $monster_stage->save();
+        $encounter = new encounter();
+        $encounter->stage_id = 1;
+        $encounter->monster_id  = 1;
+        $encounter->save();
+
+        ///team
+
+        $team = new team();
+        $team->index = 1;
+        $team->user_id = $u->id;
+        $team->save();
         
+
+        $member = new member();
+        $member->team_id = $team->id;
+        $member->pet_id = $pet->id;
+        $member->save();
 
 
     }

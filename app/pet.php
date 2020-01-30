@@ -12,6 +12,13 @@ class pet extends Model
         return $this->belongsTo('App\user');
     }
 
+    
+    public function teams()
+    {
+        return $this->belongsToMany('App\team','members');
+    }
+    
+
     public function monster(){
         return $this->belongsTo('App\monster');
     }
