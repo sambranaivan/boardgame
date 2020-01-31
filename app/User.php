@@ -26,6 +26,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+        "created_at","updated_at"
     ];
 
     /**
@@ -40,5 +41,10 @@ class User extends Authenticatable
 
     public function teams(){
         return $this->hasMany('App\team');
+    }
+
+    public function pets(){
+        return $this->hasMany('App\pet');
+
     }
 }

@@ -17,4 +17,9 @@ class team extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    protected $hidden = [
+        "created_at", "updated_at"
+    ];
+
 }

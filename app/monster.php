@@ -11,7 +11,10 @@ class monster extends Model
     {
         return $this->belongsToMany('App\stage');
     }
-  
 
-  
+    protected $hidden = [
+        "created_at", "updated_at"
+    ];
+
+
 }

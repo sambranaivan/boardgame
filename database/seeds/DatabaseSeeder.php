@@ -42,8 +42,8 @@ class DatabaseSeeder extends Seeder
         //
         $u = new User();
         $u->name = 'ivan';
-        $u->email = 'a q';
-        $u->password = bcrypt('123456678');
+        $u->email = 'sambranaivan@gmail.com';
+        $u->password = '12345678';
         $u->save();
 
         ///monster
@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
         $team->index = 1;
         $team->user_id = $u->id;
         $team->save();
-        
+
 
         $member = new member();
         $member->team_id = $team->id;
