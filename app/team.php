@@ -22,4 +22,13 @@ class team extends Model
         "created_at", "updated_at"
     ];
 
+
+    public function addMember($pet)
+    {
+        // $member = member::where(['team_id'=>$this->id,'pet_id'=>$pet->id])->first();
+        $member = new member();
+        $member->team_id = $this->id;
+        $member->pet_id = $pet->id;
+    }
+
 }

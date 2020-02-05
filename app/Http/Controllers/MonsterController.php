@@ -7,4 +7,8 @@ use Illuminate\Http\Request;
 class MonsterController extends Controller
 {
     //
+
+    public function new(){
+
+    }
 }

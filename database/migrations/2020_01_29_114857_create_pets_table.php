@@ -17,6 +17,7 @@ class CreatePetsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->biginteger('experience')->nullable();
+            $table->smallInteger('level')->default(5);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('monster_id');

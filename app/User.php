@@ -38,13 +38,30 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     public function teams(){
         return $this->hasMany('App\team');
     }
 
     public function pets(){
         return $this->hasMany('App\pet');
+    }
 
+    public function capture($monster_id,$level)
+    {
+        $pet = new pet();
+        $pet->level = $level;
+        $pet->monster_id = $monster_id;
+        $pet->user_id = $this->id;
+        $pet->save();
+        return $pet;
+    }
+
+    public function createTeam()
+    {
+        $team = new team();
+        $team->user_id = $this->id;
+        $team->index = 1;
+        $team->save();
+        return $team;
     }
 }

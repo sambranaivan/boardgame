@@ -40,11 +40,11 @@ class DatabaseSeeder extends Seeder
         }
 
         //
-        $u = new User();
-        $u->name = 'ivan';
-        $u->email = 'sambranaivan@gmail.com';
-        $u->password = '12345678';
-        $u->save();
+        // $u = new User();
+        // $u->name = 'ivan';
+        // $u->email = 'sambranaivan@gmail.com';
+        // $u->password = '12345678';
+        // $u->save();
 
         ///monster
         $monster = new monster();
@@ -52,10 +52,10 @@ class DatabaseSeeder extends Seeder
         $monster->species = 'bulbasaur';
         $monster->save();
 
-        $pet = new pet();
-        $pet->user_id = $u->id;
-        $pet->monster_id = $monster->id;
-        $pet->save();
+        // $pet = new pet();
+        // $pet->user_id = $u->id;
+        // $pet->monster_id = $monster->id;
+        // $pet->save();
 
         $encounter = new encounter();
         $encounter->stage_id = 1;
@@ -64,16 +64,16 @@ class DatabaseSeeder extends Seeder
 
         ///team
 
-        $team = new team();
-        $team->index = 1;
-        $team->user_id = $u->id;
-        $team->save();
+        // $team = new team();
+        // $team->index = 1;
+        // $team->user_id = $u->id;
+        // $team->save();
 
 
-        $member = new member();
-        $member->team_id = $team->id;
-        $member->pet_id = $pet->id;
-        $member->save();
+        // $member = new member();
+        // $member->team_id = $team->id;
+        // $member->pet_id = $pet->id;
+        // $member->save();
 
 
     }
