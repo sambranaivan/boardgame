@@ -13,29 +13,30 @@ class ApiController extends Controller
     public function login(request $request)
     {
 
-        $user = user::where('uuid', $request->uuid)
-            ->with('pets', 'teams.pets')->first();
+        $user = user::where('uuid', $request->uuid)->first();
+            // ->with('pets', 'teams.pets')->first();
 
         if ($user) {
-            return response()->json($user, 200);
+            return response()->json((object)["data"=>"Logueado", "user"=>$user], 200);
         } else {
 
-            $this->crearUsuario($request->uuid);
-            $user = user::where('uuid', $request->uuid)
-                ->with('pets', 'teams.pets')->first();
-            return response()->json($user, 200);
+            $user = new user();
+            $user->uuid = $request->uuid;
+            $user->save();
+            // $user = user::where('uuid', $request->uuid)->first();
+                // ->with('pets', 'teams.pets')->first();
+            return response()->json((object)["data"=>"Usuario Creado", "user"=>$user], 200);
         }
     }
 
-    public function crearUsuario($uuid)
+  
+
+    public function selectInitial(request $request)
     {
-        ///creo usuario
-        $user = new user();
-        $user->uuid = $uuid;
-        $user->save();
-        ///creo un team y agrego un pet
-        $user->createTeam($user->capture(1,5));
 
-
+        $user = user::find($request->user_id);
+        // $user->capture($request->monster_id,5);
+           // $user->createTeam($user->capture(1,5));
+        return response()->json((object)["data"=>'Inicial Seleccionado',"user"=>$user], 200);
     }
 }
